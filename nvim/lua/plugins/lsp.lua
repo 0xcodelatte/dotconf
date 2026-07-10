@@ -49,7 +49,16 @@ return {
             })
         end
 
-		lspconfig.gopls.setup({ on_attach = on_attach })
+		lspconfig.gopls.setup({ 
+            on_attach = on_attach,
+            settings = {
+                gopls = {
+                    completeUnimported = true,
+                    usePlaceholders = true,
+                    deepCompletion = true,
+                },
+            },
+        })
 
 		-- diagnostics
 		vim.diagnostic.config({ 
